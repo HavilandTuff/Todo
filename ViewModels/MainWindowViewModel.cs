@@ -38,5 +38,17 @@ namespace Todo.ViewModels
                 });
             Content = vm;
         }
+        public void ClearFinishedItems(Database db)
+        {
+            
+            foreach( TodoItem item in db.GetItems())
+            {
+                if( item.IsChecked == true)
+                    {
+                        List.Items.Remove(item);
+                    }
+            }
+            Content = List;
+        }
     }
 }
